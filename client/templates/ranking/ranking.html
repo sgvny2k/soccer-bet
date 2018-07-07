@@ -1,0 +1,42 @@
+<template name="ranking">
+  <div class="row">
+    {{#each players}}
+      {{> rank_item}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="rank_item">
+  <div class="col-lg-6 col-xs-12 rank-item-wrapper">
+    <div class="rank-item">
+      <div class="col-xs-1 rank-position {{#if showBalance}}vertical-middle{{/if}}">
+        <span>{{position}}</span>
+      </div>
+      <div class="col-flex">
+        <div class="col-lg-5 col-sm-4 col-xs-12 rank-user-info {{#if showBalance}}vertical-middle{{/if}}">
+          <span class="rank-name">{{getName}}</span>
+        </div>
+        <div class="col-lg-7 col-sm-8 col-xs-12 rank-player-info">
+          <div class="row">
+            <div class="col-xs-6 {{#if showBalance}}rank-player-info-item{{/if}}">
+              <span class="label label-warning">Bet: {{formatFloat bet_sum}}</span>
+            </div>
+            <div class="col-xs-6 {{#if showBalance}}rank-player-info-item{{/if}}">
+              <span class="label label-{{labelClass}}">Result: {{formatFloat win_point}}</span><br>
+            </div>
+          </div>
+          {{#if showBalance}}
+          <div class="row">
+            <div class="col-xs-6">
+              <span class="label label-info">Balance: {{formatFloat balance}}</span>
+            </div>
+            <div class="col-xs-6">
+              <span class="label label-info">Xfers: {{transfers}}</span>
+            </div>
+          </div>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

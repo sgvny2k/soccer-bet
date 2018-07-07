@@ -1,0 +1,10 @@
+<template name="player_matches">
+  {{> breadcrumb}}
+  {{#if Template.subscriptionsReady}}
+  {{#staggering}}
+  <div class="content">
+    {{> match_list init=initFilter noPast=true}}
+  </div>
+  {{/staggering}}
+  {{/if}}
+</template>

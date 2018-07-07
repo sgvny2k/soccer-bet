@@ -1,0 +1,18 @@
+<template name="ranking_date">
+  {{> breadcrumb}}
+  {{#if Template.subscriptionsReady}}
+    {{#staggering}}
+    <div class="content">
+      <h3>{{shownDate}}</h3>
+      {{> ranking players=players}}
+      <div class="row">
+        <hr style="margin-bottom: 0px;">
+        <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 time-control">
+          <button class="btn btn-link js-more-matches-past"><span class="glyphicon glyphicon-chevron-left"></span> Previous Day</button>
+          <button class="btn btn-link js-more-matches" disabled="{{#if disableNext}}true{{/if}}">Next Day <span class="glyphicon glyphicon-chevron-right"></span></button>
+        </div>
+      </div>
+    </div>
+    {{/staggering}}
+  {{/if}}
+</template>

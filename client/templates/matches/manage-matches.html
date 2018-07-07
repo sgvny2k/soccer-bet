@@ -1,0 +1,54 @@
+<template name="manage_matches">
+	{{> breadcrumb}}
+	{{#if Template.subscriptionsReady}}
+	{{#staggering}}
+	<div class="content">
+			{{> match_edit pp=thisInstance}}
+			{{> match_list init=initFilter editable=true}}
+	</div>
+	{{/staggering}}
+	{{/if}}
+	{{> modal_menu_matches}}
+</template>
+
+<template name="modal_menu_matches">
+	<div class="modal" id="modalMenu" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="list-group">
+					<a class="list-group-item text-center js-menu-markets">Markets</a>
+					<a class="list-group-item text-center js-menu-edit">Edit</a>
+					<a class="list-group-item text-center js-menu-delete">Delete</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="match_edit">
+	<div class="row row-match-control">
+		<button class="btn btn-info js-add-match">Add Game <span class="glyphicon glyphicon-plus"></span></button>
+		<div class="collapse col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" id="collapsibleForm">
+			<div class="row row-match-form">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						{{#autoForm id="formMatch" schema=schema type=methodType meteormethod=method doc=match}}
+							<div class="col-xs-12 col-md-6">
+								{{> afQuickField name="name" type="text"}}
+							</div>
+							<div class="col-xs-12 col-md-6">
+								{{> afQuickField name="time" type="datetimepicker" selector="#formMatch #time"}}
+							</div>
+							<div class="col-xs-6 col-md-offset-3 col-md-3">
+								<button type="submit" class="btn btn-primary form-control">{{methodName}}</button>
+							</div>
+							<div class="col-xs-6 col-md-3">
+								<button type="button" class="btn btn-default form-control js-cancel">Cancel</button>
+							</div>
+						{{/autoForm}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

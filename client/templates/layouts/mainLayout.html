@@ -1,0 +1,18 @@
+<template name="mainLayout">
+  <div class="color-line"></div>
+  <button type="button" class="back-btn" title="Go back"><span class="glyphicon glyphicon-arrow-left"></span></button>
+  <button type="button" class="scrollup-btn" title="Scoll up">
+    <span class="glyphicon glyphicon-arrow-up"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <aside id="menu">
+    <div class="column">
+      {{> navigation}}
+    </div>
+  </aside>
+  <div id="wrapper">
+    {{> header}}
+    {{> yield}}
+    <div id="overlay-panel"></div>
+  </div>
+</template>

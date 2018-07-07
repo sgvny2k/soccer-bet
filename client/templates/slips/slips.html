@@ -1,0 +1,93 @@
+<template name="slips">
+  {{> breadcrumb}}
+  {{#if Template.subscriptionsReady}}
+  {{#staggering}}
+  <div class="content">
+    <div class="row">
+      <h3>Balance: {{formatFloat balance}}</h3>
+    </div>
+    <div class="row">
+      <!-- odds selected but haven't bet -->
+      {{> slip_list slips=waitingSlips slipStatus="wait" heading="Pending Slips" showRemove=true}}
+    </div>
+    <div class="row">
+      <!-- odds already bet -->
+      {{> slip_list slips=betSlips slipStatus="mark" heading="Bet Slips"}}
+    </div>
+    <div class="row">
+      <!-- odds already bet, the bet time passed, but result has not been updated -->
+      {{> slip_list slips=betSlipsNotUpdated slipStatus="lost" heading="Slips Waiting For Results"}}
+    </div>
+  </div>
+  {{/staggering}}
+  {{/if}}
+</template>
+
+<template name="slip_list">
+  <h3>{{heading}} ({{slips.length}})</h3>
+  <div class="panel panel-default">
+    <div class="panel-body">
+        {{#if slips.length}}
+          {{#each slips}}
+            {{> slip_item}}
+          {{/each}}
+          {{#if showRemove}}
+          <div class="col-xs-12 text-center">
+            <button type="button" class="btn btn-default js-remove-all">Remove All</button>
+          </div>
+          {{/if}}
+        {{else}}
+          <h5>&nbsp;</h5>
+        {{/if}}
+    </div>
+  </div>
+</template>
+
+<template name="slip_item">
+  <div class="col-lg-3 col-md-4 col-xs-12 market-item">
+    <div class="panel panel-default">
+      <!-- get slip status from top parent data context -->
+      <div class="panel-heading js-odd {{slipStatus ..}}">
+        <div class="form-group">
+          {{#unless nonRemovable}}
+          <span class="glyphicon glyphicon-remove js-remove-slip"></span>
+          {{/unless}}
+          <label class="control-label">{{matchName}}</label>
+          <br>{{matchTime}}
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="control-label">{{marketName}}</label>
+              <br>{{oddName}}
+              {{> bet_form}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="bet_form">
+  <form id="formBet" novalidate="novalidate">
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon" id="input-group-addon">@{{oddValue}}</span>
+        <input type="number" min="5" class="js-betAmount form-control"
+          placeholder="Bet amount" aria-describedby="input-group-addon" step="5"
+          value={{bet}} disabled="{{disabled}}">
+      </div>
+        <span class="help-block">You can win: <span class="label label-success etw">{{estimateWin}}</span></span>
+    </div>
+  </form>
+  {{#unless disabled}}
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <button type="button" class="btn btn-info form-control js-save-slip">Save</button>
+    </div>
+  </div>
+  {{/unless}}
+</template>

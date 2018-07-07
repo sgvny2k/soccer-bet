@@ -1,0 +1,34 @@
+<template name="quick_info">
+  <div class="col-xs-12 col-sm-6 col-lg-3 quick-info">
+    <h3>Summary</h3>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-12 js-player-sum">
+            <label>Balance:</label>
+            <span class="pull-right">{{formatFloat balance}}</span>
+          </div>
+          {{#with player}}
+          <div class="col-xs-12 js-player-sum">
+            <label>Total Spent:</label>
+            <span class="pull-right">{{formatFloat betSum}}</span>
+          </div>
+          <div class="col-xs-12 js-player-sum">
+            <label>Total Win:</label>
+            <span class="pull-right">{{formatFloat win_sum}}</span>
+          </div>
+          <!-- <div class="col-xs-12 js-player-sum">
+            <label>Winning Rate:</label>
+            <span class="pull-right">{{formatFloat win_rate}}</span>
+          </div> -->
+          <div class="col-xs-12 js-player-slips">
+            <label>Slips:</label>
+            <span class="badge js-sum-bet">{{slipsBet}}</span>
+            <span class="badge js-sum-wait">{{slipsWait}}</span>
+          </div>
+          {{/with}}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

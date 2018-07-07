@@ -1,0 +1,207 @@
+.flag-albania {
+	background-position:100% 100%
+}
+.flag-AND {
+	background-position:25% 0
+}
+.flag-ARM {
+	background-position:50% 0
+}
+.flag-austria {
+	background-position:75% 0
+}
+.flag-AZE {
+	background-position:100% 0
+}
+.flag-belgium {
+	background-position:0 10%
+}
+.flag-BIH {
+	background-position:25% 10%
+}
+.flag-BLR {
+	background-position:50% 10%
+}
+.flag-BUL {
+	background-position:75% 10%
+}
+.flag-croatia {
+	background-position:100% 10%
+}
+.flag-CYP {
+	background-position:0 20%
+}
+.flag-czech.rep {
+	background-position:25% 20%
+}
+.flag-DAN,.flag-DEN {
+	background-position:50% 20%
+}
+.flag-england {
+	background-position:75% 20%
+}
+.flag-EST {
+	background-position:100% 20%
+}
+.flag-FIN {
+	background-position:0 30%
+}
+.flag-france {
+	background-position:25% 30%
+}
+.flag-FRO {
+	background-position:50% 30%
+}
+.flag-GEO {
+	background-position:75% 30%
+}
+.flag-germany {
+	background-position:100% 30%
+}
+.flag-GIB {
+	background-position:0 40%
+}
+.flag-GRE {
+	background-position:25% 40%
+}
+.flag-hungary {
+	background-position:50% 40%
+}
+.flag-iceland {
+	background-position:75% 40%
+}
+.flag-rep.of.ireland {
+	background-position:100% 40%
+}
+.flag-ISR {
+	background-position:0 50%
+}
+.flag-italy {
+	background-position:25% 50%
+}
+.flag-KAZ {
+	background-position:50% 50%
+}
+.flag-LAT,.flag-LVA {
+	background-position:75% 50%
+}
+.flag-LIE {
+	background-position:100% 50%
+}
+.flag-LIT,.flag-LTU {
+	background-position:0 60%
+}
+.flag-LUX {
+	background-position:25% 60%
+}
+.flag-MAL,.flag-MLT {
+	background-position:50% 60%
+}
+.flag-MKD {
+	background-position:75% 60%
+}
+.flag-MNE {
+	background-position:100% 60%
+}
+.flag-MDA,.flag-MOL {
+	background-position:0 70%
+}
+.flag-NED {
+	background-position:25% 70%
+}
+.flag-northern.ireland {
+	background-position:50% 70%
+}
+.flag-NOR {
+	background-position:75% 70%
+}
+.flag-poland {
+	background-position:100% 70%
+}
+.flag-portugal {
+	background-position:0 80%
+}
+.flag-romania {
+	background-position:25% 80%
+}
+.flag-russia {
+	background-position:50% 80%
+}
+.flag-SER,.flag-SRB {
+	background-position:75% 80%
+}
+.flag-SLO,.flag-SVN {
+	background-position:100% 80%
+}
+.flag-SMR {
+	background-position:0 90%
+}
+.flag-spain {
+	background-position:25% 90%
+}
+.flag-switzerland {
+	background-position:50% 90%
+}
+.flag-slovakia {
+	background-position:75% 90%
+}
+.flag-sweden {
+	background-position:100% 90%
+}
+.flag-turkey {
+	background-position:0 100%
+}
+.flag-ukraine {
+	background-position:25% 100%
+}
+.flag-wales {
+	background-position:50% 100%
+}
+.flag-SCO {
+	background-position:75% 100%
+}
+
+[class*=" flag-"], [class^=flag-] {
+	display: inline-block;
+	margin: 0;
+	background-repeat: no-repeat;
+}
+
+.buildBGFlag(@countryName) {
+	.flag-@{countryName} {
+		background-image: url('images/countries/@{countryName}.jpg');
+	}
+}
+
+.buildBGFlag(argentina);
+.buildBGFlag(australia);
+.buildBGFlag(belgium);
+.buildBGFlag(brazil);
+.buildBGFlag(colombia);
+.buildBGFlag(costarica);
+.buildBGFlag(croatia);
+.buildBGFlag(denmark);
+.buildBGFlag(egypt);
+.buildBGFlag(england);
+.buildBGFlag(france);
+.buildBGFlag(germany);
+.buildBGFlag(iceland);
+.buildBGFlag(iran);
+.buildBGFlag(japan);
+.buildBGFlag(mexico);
+.buildBGFlag(morocco);
+.buildBGFlag(nigeria);
+.buildBGFlag(panama);
+.buildBGFlag(peru);
+.buildBGFlag(poland);
+.buildBGFlag(portugal);
+.buildBGFlag(russia);
+.buildBGFlag(saudiarabia);
+.buildBGFlag(senegal);
+.buildBGFlag(serbia);
+.buildBGFlag(southkorea);
+.buildBGFlag(spain);
+.buildBGFlag(sweden);
+.buildBGFlag(switzerland);
+.buildBGFlag(tunisia);
+.buildBGFlag(uruguay);

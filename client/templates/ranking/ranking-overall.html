@@ -1,0 +1,10 @@
+<template name="ranking_overall">
+  {{> breadcrumb}}
+  {{#if Template.subscriptionsReady}}
+    {{#staggering}}
+    <div class="content">
+      {{> ranking players=players showBalance=true}}
+    </div>
+    {{/staggering}}
+  {{/if}}
+</template>

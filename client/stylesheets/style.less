@@ -1,0 +1,91 @@
+@import "bootstrap.import.less";
+
+// Import Google font
+// @import url("http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+//
+// // Color list
+@color-navy-blue:#34495e;
+@color-violet:#9b59b6;
+@color-blue:#3498db;
+@color-green:#62cb31;
+@color-yellow:#ffb606;
+@color-orange:#e67e22;
+@color-red:#e74c3c;
+@color-red-deep:#c0392b;
+//
+// // Additional colors
+@color-text: #6a6c6f;
+@color-bright: #f7f9fa;
+@color-background: #f1f3f6;
+@border-color: #e4e5e7;
+@color-background-icon-bar: #ffffff;
+@color-background-menu-button: rgba(255,255,255,0.3);
+@color-navbar-text: #F5F5F5;
+@color-nav-divider: darken(@color-bright, 25%);
+
+// odd colors
+@color-odd-bg: #fafafa;
+@color-odd-bg-gradient-middle-pc: 60%;
+@color-odd-mark-bg: #54b4eb;
+@color-odd-mark-color: whitesmoke;
+@color-odd-wait-bg: #e0e078;
+@color-odd-wait-color: #000000;
+@color-odd-win-bg: #84cf6a;
+@color-odd-win-color: whitesmoke;
+@color-odd-lost-bg: #db5454;
+@color-odd-lost-color: whitesmoke;
+
+// Additional variables
+@menu-width: 180px;
+@color-line-height: 6px;
+
+@main-transition: all 0.1s ease-out 0s;
+.main-transition {
+  @media(min-width: @screen-sm-min + 1) {
+    // transition applies for big screens only
+    -webkit-transition: @main-transition;
+    -o-transition: @main-transition;
+    transition: @main-transition;
+  }
+}
+
+@transition-menu-button: all 0.3s ease-in-out;
+.transition-menu-button {
+  @media(min-width: @screen-sm-min + 1) {
+    // transition applies for big screens only
+    -webkit-transition: @transition-menu-button;
+    -o-transition: @transition-menu-button;
+    transition: @transition-menu-button;
+  }
+}
+
+@transition-menu: all 0.3s ease 0s;
+.transition-menu {
+  @media(min-width: @screen-sm-min + 1) {
+    // transition applies for big screens only
+    -webkit-transition: @transition-menu;
+    -o-transition: @transition-menu;
+    transition: @transition-menu;
+  }
+}
+
+@transition-wrapper: margin-left 0.3s ease 0s;
+.transition-wrapper {
+  @media(min-width: @screen-sm-min + 1) {
+    // transition applies for big screens only
+    -webkit-transition: @transition-wrapper;
+    -o-transition: @transition-wrapper;
+    transition: @transition-wrapper;
+  }
+}
+
+
+// Import all styles
+@import "bootswatch.import.less";
+@import "animate.import.less";
+@import "login.import.less";
+@import "various.import.less";
+@import "layout.import.less";
+@import "soccerbet.import.less";
+
+@navbar-height: 43px;

@@ -1,0 +1,87 @@
+<template name="match_list">
+	{{> match_filter}}
+	{{#if showTimeFilter}}
+	<div class="row">
+		<hr style="margin-bottom: 0px;">
+		<div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 time-control">
+			<button class="btn btn-link js-more-matches-past" disabled="{{#if noPast}}true{{/if}}"><span class="glyphicon glyphicon-chevron-left"></span> More</button>
+			<button class="btn btn-link js-more-matches" disabled="{{#if noFuture}}true{{/if}}"> More <span class="glyphicon glyphicon-chevron-right"></span></button>
+			<div class="text-center match-list-period">
+				<span title="Reset time filter">{{#with timeFilter}}{{startDate}} <span class="label label-warning">X</span> {{endDate}}{{/with}}</span>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+	{{#each matchesByDates}}
+		<h3>{{date}}</h3>
+		{{#each matches}}
+			{{> match_item}}
+		{{/each}}
+	{{/each}}
+	{{#if showTimeFilter}}
+	<div class="row">
+		<hr style="margin-bottom: 0px;">
+		<div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 time-control">
+			<button class="btn btn-link js-more-matches-past" disabled="{{#if noPast}}true{{/if}}"><span class="glyphicon glyphicon-chevron-left"></span> More</button>
+			<button class="btn btn-link js-more-matches" disabled="{{#if noFuture}}true{{/if}}"> More <span class="glyphicon glyphicon-chevron-right"></span></button>
+			<div class="text-center match-list-period">
+				<span title="Reset time filter">{{#with timeFilter}}{{startDate}} <span class="label label-warning">X</span> {{endDate}}{{/with}}</span>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+</template>
+
+<template name="match_item">
+	<div class="row">
+		<div class="match-row_match">
+			<div class="team-home col-md-5 col-xs-5">
+				<span class="team-flag flag-{{removeSpaces teamHome}}"></span>
+				<div class="team-name">
+					<span class="team-name_name">{{teamHome}}</span>
+				</div>
+			</div>
+			<div class="text-center match-score col-md-2 col-xs-2">
+				<span>{{matchTime}}</span>
+			</div>
+			<div class="team-away col-md-5 col-xs-5">
+				{{#with teamAway}}
+					<span class="team-flag flag-{{removeSpaces this}}"></span>
+					<div class="team-name">
+						<span class="team-name_name">{{this}}</span>
+					</div>
+				{{else}}
+					&nbsp;
+				{{/with}}
+			</div>
+			<div class="match-row_status match-info text-center">
+				{{#if ../../editable}}
+					<span class="label label-info js-match-edit">Edit</span>
+					<span class="label label-primary js-match-markets">{{marketsCount}} markets</span>
+					<span class="label label-danger js-match-delete">Delete</span>
+				{{else}}
+					<span class="label label-primary js-match-markets">{{marketsCount}} markets</span>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="match_filter">
+	<div class="row row-filter">
+		<button class="btn btn-default btn-large js-filter" data-toggle="collapse" data-target="div.match-filter">{{#if filter}}<span class="team-name">{{filter}}</span>{{else}}Filter by team name{{/if}} <span class="glyphicon glyphicon-filter"></span></button>
+	</div>
+	<div class="match-filter row row-teams collapse">
+		{{#if filter}}
+			<button class="btn btn-info js-clear-filter">Remove selection</button>
+		{{/if}}
+		<ul class="team-list">
+			{{#each teamGroups}}
+			<li class="team-item text-center">
+				<span class="team-flag flag-{{this}}"></span>
+				<span class="team-name">{{this}}</span>
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+</template>

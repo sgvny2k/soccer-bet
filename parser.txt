@@ -1,0 +1,26 @@
+let $text = $(text);
+let sections = [];
+$text.find(".Market_market_2m7").each(function(idx, el) {
+	// parse a section
+	let self = this;
+	let odds = [];
+	$(self).find(".Outcomes_outcomes_2uk").each(function(idx, el) {
+		// parse body containing odds
+		$(this).find(".Outcomes_outcome_3_D").each(function(idx, el) {
+			let $name = $(this).find(".BetButton_competitorName_DQT.Outcomes_competitor_3IY");
+			let $value = $(this).find(".BetButton_display_3ty");
+			if ($name.length && $value.length) {
+				odds.push({
+					name: $name.text().trim(),
+					value: parseFloat($value.text().trim())
+				});
+			}
+		});
+	});
+	// save section
+	sections.push({
+		name: $(self).find(".Market_header_2Wc .Market_title_3ea").text().trim(),
+		odds: odds
+	});
+});
+return sections;

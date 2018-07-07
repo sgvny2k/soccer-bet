@@ -1,0 +1,12 @@
+<template name="ranking_matches">
+  {{> breadcrumb}}
+  {{#if Template.subscriptionsReady}}
+  {{#staggering}}
+  <div class="content">
+    <div class="row">
+      {{> match_list init=initFilter}}
+    </div>
+  </div>
+  {{/staggering}}
+  {{/if}}
+</template>

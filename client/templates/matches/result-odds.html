@@ -1,0 +1,49 @@
+<template name="result_odd_pick">
+  {{> breadcrumb}}
+  {{#if Template.subscriptionsReady}}
+  {{#staggering}}
+  <div class="content">
+    <div class="row">
+      <div>
+        {{#with match}}
+          <h3>{{matchDate}}</h3>
+          {{> match_item}}
+        {{/with}}
+      </div>
+      <div>
+        <div class="row">
+          <h3>&nbsp;</h3>
+          {{#each markets}}
+            <div class="col-lg-3 col-md-4 col-xs-12 market-item">
+              <div class="panel panel-default">
+                <div class="panel-heading" data-index={{@index}}>
+                  <label>{{name}}</label>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      {{#each odds}}
+                        <div class="js-odd{{#if win}} mark{{/if}}" data-index={{@index}}>
+                          <span>{{name}}</span>
+                          <span class="pull-right">{{value}}</span>
+                        </div>
+                      {{/each}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+        <div class="row">
+          <div class="col-md-offset-4 col-md-4 col-xs-12">
+            <button type="button" class="btn btn-info js-save form-control">Update Players' Slips</button>
+          </div>
+        </div>
+        <div class="row">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+  {{/staggering}}
+  {{/if}}
+</template>

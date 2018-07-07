@@ -1,0 +1,30 @@
+<template name="navigation">
+	<ul class="nav" id="side-menu">
+	{{#if Template.subscriptionsReady}}
+	{{#each menuItems}}
+		{{#if link}}
+		<li class="{{isActiveRoute regex=route}}">
+			<a href="{{pathFor route=route data=params}}">
+			<span class="nav-label">{{text}}</span>
+			</a>
+		</li>
+		{{/if}}
+		{{#if divider}}
+		<li class="nav-divider{{#if img}} img{{/if}}{{#if group}} group{{/if}}">
+			{{#if text}}
+				<span>{{text}}</span>
+			{{/if}}
+			{{#if img}}
+			<div class="logo" style="background-image:url('{{img}}');"></div>
+			{{/if}}
+		</li>
+		{{/if}}
+	{{/each}}
+	{{#if currentUser}}
+		<li class="{{#if group}} group{{/if}}">{{> atNavButton}}</li>
+		{{showBadges}}
+		{{showOpBadges}}
+	{{/if}}
+	{{/if}}
+	</ul>
+</template>

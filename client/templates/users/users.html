@@ -1,0 +1,46 @@
+<template name="users">
+	{{> breadcrumb}}
+	{{#if Template.subscriptionsReady}}
+	{{#staggering}}
+	<div class="content">
+		<div class="row">
+		{{> tabular table=TabularTables.Users selector=selector id="table-users" class="table table-striped table-bordered table-condensed"}}
+		</div>
+	</div>
+	{{/staggering}}
+	{{/if}}
+	{{> modal_menu_users}}
+</template>
+
+<template name="modal_menu_users">
+	<div class="modal" id="modalMenu" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="list-group">
+			<a class="list-group-item text-center js-edit">Edit</a>
+			<a class="list-group-item text-center js-delete">Delete</a>
+			</div>
+		</div>
+		</div>
+	</div>
+</template>
+
+<template name="user_player">
+	{{#unless getPlayer}}
+		No <button type="button" title="Create player" class="btn btn-xs btn-primary glyphicon glyphicon-plus" id="createPlayer"></button>
+	{{else}}
+		Yes <button type="button" title="Remove player" class="btn btn-xs btn-danger glyphicon glyphicon-remove" id="removePlayer"></button>
+	{{/unless}}
+</template>
+
+<template name="user_roles">
+	{{#each roles}}
+		<span class="label label-success user-role">{{this}}</span>&nbsp;
+	{{/each}}
+</template>
+
+<template name="user_group">
+	{{#with getPlayer}}
+		{{group}}
+	{{/with}}
+</template>

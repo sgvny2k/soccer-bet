@@ -1,0 +1,74 @@
+<template name="sponsors">
+  {{> breadcrumb}}
+  {{#if Template.subscriptionsReady}}
+  {{#staggering}}
+  <div class="content">
+    <h3>Sponsors</h3>
+    <h5>Please select a name to transfer your points.</h5>
+    <div class="row">
+      {{#each sponsors}}
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="rank-item">
+          <div class="col-xs-2 sponsor-position vertical-middle">
+            <span>{{position}}</span>
+          </div>
+          <div class="col-xs-8 sponsor-name vertical-middle">
+            <span class="rank-name">{{name}}</span>
+          </div>
+          <div class="col-xs-2 sponsor-amount vertical-middle">
+            <span>{{init_point}}</span>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="rank-item no-event">
+          <div class="col-xs-2 sponsor-position vertical-middle">
+            <span>*</span>
+          </div>
+          <div class="col-xs-8 sponsor-name vertical-middle">
+            <span class="rank-name">TOTAL</span>
+          </div>
+          <div class="col-xs-2 sponsor-amount vertical-middle">
+            <span>{{sum}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h3>Point Transfers</h3>
+    <div class="row">
+      {{#each transfers}}
+      <div class="col-xs-12">
+        <div class="transfer-item">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="col-xs-12 col-sm-4">
+                <div class="row">
+                  <div class="col-xs-12">From</div>
+                  <div class="col-xs-12 transfer-person">{{from}}</div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4 text-center">
+                <div class="row">
+                  <div class="col-xs-12">{{when}}</div>
+                  <div class="col-xs-12 transfer-amount text-center">{{amount}}</div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4">
+                <div class="row">
+                  <div class="col-xs-12">To</div>
+                  <div class="col-xs-12 transfer-person">{{to}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  {{/staggering}}
+  {{/if}}
+</template>

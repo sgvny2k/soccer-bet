@@ -1,0 +1,15 @@
+<template name="player_of_day">
+  <div class="col-xs-12 col-sm-6 col-lg-3 player-of-day">
+    <h3>Player of the Day</h3>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        {{#with lastDate}}
+        <h4>{{date}}</h4>
+        <div class="row home-player-item"></div>
+        {{> home_player_item header="Highest Point Winner" selector=mostWonPlayer}}
+        {{> home_player_item header="Most Bet Player" selector=mostBetPlayer}}
+        {{/with}}
+      </div>
+    </div>
+  </div>
+</template>

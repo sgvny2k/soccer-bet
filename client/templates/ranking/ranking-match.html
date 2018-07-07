@@ -1,0 +1,15 @@
+<template name="ranking_match">
+  {{> breadcrumb}}
+  {{#if Template.subscriptionsReady}}
+    {{#staggering}}
+    <div class="content">
+      {{#with match}}
+        <h3>{{matchDate}}</h3>
+        {{> match_item}}
+      {{/with}}
+      <h3>&nbsp;</h3>
+      {{> ranking players=players}}
+    </div>
+    {{/staggering}}
+  {{/if}}
+</template>

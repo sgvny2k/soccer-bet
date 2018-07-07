@@ -1,0 +1,943 @@
+//======== adjustments for modal: vertical middle
+.modal {
+  text-align: center;
+}
+.modal:before {
+  display: inline-block;
+  vertical-align: middle;
+  content: " ";
+  height: 100%;
+}
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+.modal-open {
+  padding-right: 0px!important;
+}
+//======== end adjustments for modal: vertical middle
+
+.row-match-control {
+  text-align: right;
+}
+.row-match-form {
+  text-align: left;
+}
+.js-add-match {
+  margin-bottom: 5px;
+}
+
+//======== adjustments for sweetalert
+.sweet-alert .sa-input-error {
+  top: 22px;
+  right: 13px;
+}
+//======== end adjustments for sweetalert
+
+//======== adjustments for menu sidebar
+#side-menu li.nav-divider {
+  height: initial;
+  background-image: -webkit-linear-gradient(darken(@color-nav-divider, 20%) 15%, darken(@color-nav-divider, 30%) 80%);
+  background-image: -o-linear-gradient(darken(@color-nav-divider, 20%) 15%,darken(@color-nav-divider, 30%) 80%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(15%, darken(@color-nav-divider, 20%)), color-stop(80%, darken(@color-nav-divider, 30%)));
+  background-image: linear-gradient(darken(@color-nav-divider, 20%) 15%, darken(@color-nav-divider, 30%) 80%);
+  &.img {
+    border-top: 0px;
+    line-height: 7px;
+    padding: 0px;
+    height: 44px;
+    > span {
+      margin-top: 10px;
+    }
+    > div.logo {
+      background-position: 10px;
+      background-size: 74px 40px;
+      background-repeat: no-repeat;
+    //   position: relative;
+    //   float: right;
+      min-width: 71px;
+      min-height: 44px;
+    //   margin-top: -34px;
+    }
+  }
+  &.group {
+    cursor: pointer;
+  }
+
+  > span {
+    color: white;
+    padding: 7px 15px;
+    display: block;
+    font-weight: 700;
+  }
+
+  > img {
+    max-height: 33px;
+    margin-left: 8px;
+    float: left;
+  }
+}
+#side-menu li a {
+  padding: 10px 20px;
+}
+//======== end adjustments for menu sidebar
+
+//======== adjustments for breadcrumb
+.breadcrumb {
+  margin-top: -15px;
+  margin-bottom: 0px;
+}
+//======== end adjustments for menu sidebar
+
+//======== adjustments for animate.css
+/* Small Devices, Tablets */
+@media only screen and (max-width: @screen-sm-min) {
+	.animated {
+		/*CSS transitions*/
+		-o-transition-property: none !important;
+		-moz-transition-property: none !important;
+		-ms-transition-property: none !important;
+		-webkit-transition-property: none !important;
+		transition-property: none !important;
+		/*CSS transforms*/
+		-o-transform: none !important;
+		-moz-transform: none !important;
+		-ms-transform: none !important;
+		-webkit-transform: none !important;
+		transform: none !important;
+		/*CSS animations*/
+		-webkit-animation: none !important;
+		-moz-animation: none !important;
+		-o-animation: none !important;
+		-ms-animation: none !important;
+		animation: none !important;
+	}
+}
+//======== end adjustments for animate.css
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('packages/bootswatch_cerulean/bootstrap/dist/fonts/glyphicons-halflings-regular.eot');
+  src: url('packages/bootswatch_cerulean/bootstrap/dist/fonts/glyphicons-halflings-regular.eot?') format('embedded-opentype'),
+    url('packages/bootswatch_cerulean/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2') format('woff2'),
+    url('packages/bootswatch_cerulean/bootstrap/dist/fonts/glyphicons-halflings-regular.woff') format('woff'),
+    url('packages/bootswatch_cerulean/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+    url('packages/bootswatch_cerulean/bootstrap/dist/fonts/glyphicons-halflings-regular.svg') format('svg');
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden!important;
+}
+
+body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #fff;
+  font-size: 13px;
+  color: @text-color;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#navbar {
+  min-height: @navbar-height;
+  padding-top: 3px;
+  border-radius: 0px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#menu {
+  width: @menu-width;
+  bottom: 0;
+  float: left;
+  left: 0;
+  position: absolute;
+  top: @color-line-height;
+  background-color: @navbar-default-bg;
+  .transition-menu;
+}
+
+#wrapper {
+  margin: 0 0 0 @menu-width;
+  padding: 0;
+  background: @color-background;
+  position: relative;
+  min-height: 100%;
+  box-shadow: 0px 0px 5px #999;
+  .transition-wrapper;
+}
+
+.content {
+  padding: 25px 40px 40px 40px;
+  min-width: 320px;
+}
+
+@media(max-width: 768px) {
+  .content {
+    padding: 15px 15px 15px 15px;
+    min-width: 320px;
+  }
+}
+
+#page-header {
+  padding: 20px 40px;
+}
+
+.color-line {
+  background: @color-bright;
+  height: @color-line-height;
+  background-image: -webkit-linear-gradient(left, @color-navy-blue, @color-navy-blue 25%, @color-violet 25%, @color-violet 35%, @color-blue 35%, @color-blue 45%, @color-green 45%, @color-green 55%, @color-yellow 55%, @color-yellow 65%, @color-orange 65%, @color-orange 75%, @color-red 85%, @color-red 85%,@color-red-deep 85%, @color-red-deep 100%);
+  background-image: -moz-linear-gradient(left, @color-navy-blue, @color-navy-blue 25%, @color-violet 25%, @color-violet 35%, @color-blue 35%, @color-blue 45%, @color-green 45%, @color-green 55%, @color-yellow 55%, @color-yellow 65%, @color-orange 65%, @color-orange 75%, @color-red 85%, @color-red 85%,@color-red-deep 85%, @color-red-deep 100%);
+  background-image: -ms-linear-gradient(left, @color-navy-blue, @color-navy-blue 25%, @color-violet 25%, @color-violet 35%, @color-blue 35%, @color-blue 45%, @color-green 45%, @color-green 55%, @color-yellow 55%, @color-yellow 65%, @color-orange 65%, @color-orange 75%, @color-red 85%, @color-red 85%,@color-red-deep 85%, @color-red-deep 100%);
+  background-image: linear-gradient(to right, @color-navy-blue, @color-navy-blue 25%, @color-violet 25%, @color-violet 35%, @color-blue 35%, @color-blue 45%, @color-green 45%, @color-green 55%, @color-yellow 55%, @color-yellow 65%, @color-orange 65%, @color-orange 75%, @color-red 85%, @color-red 85%,@color-red-deep 85%, @color-red-deep 100%);
+  background-size: 100% 6px;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+}
+
+#right-sidebar {
+  background-color: #fff;
+  border-left: 1px solid @border-color;
+  position: fixed;
+  top: 0;
+  width: 260px !important;
+  z-index: 1009;
+  bottom: 0;
+  right: 0;
+  display: none;
+  overflow: auto;
+}
+
+#right-sidebar.sidebar-open {
+  display: block;
+}
+
+.column {
+  height: 100%;
+  background-color: #f8f8f8;
+}
+
+#overlay-panel {
+  opacity: 0.4;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #131313;
+  z-index: 1001;
+}
+
+@media(min-width: 769px) {
+  #overlay-panel {
+    display: none;
+  }
+}
+
+#at-nav-button {
+  margin-left: 8px;
+}
+
+.head-title {
+  width: 100%;
+  text-align: center;
+  color: @color-navbar-text;
+  font-size: 1.5em;
+  position: absolute;
+  margin-top: 4px;
+  padding: 0 70px;
+}
+
+.toggleMenu {
+  position: absolute;;
+  padding: 9px 9px;
+  margin-left: 5px;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  border-color: @color-background-menu-button;
+}
+
+.toggleMenu:hover, .toggleMenu:focus {
+  background-color: @color-background-menu-button;
+}
+
+.toggleMenu:focus {
+  outline: 0px;
+}
+
+.toggleMenu .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  position: relative;
+  background-color: @color-background-icon-bar;
+  .transition-menu-button;
+}
+
+.toggleMenu .icon-bar+.icon-bar {
+  margin-top: 4px;
+}
+
+.toggleMenu .icon-bar:nth-of-type(2) {
+  top: 1px;
+}
+
+.toggleMenu .icon-bar:nth-of-type(3) {
+	top: 2px;
+}
+
+.toggleMenu.active .icon-bar:nth-of-type(1) {
+  top: 6px;
+  transform: rotate(45deg);
+}
+
+.toggleMenu.active .icon-bar:nth-of-type(2) {
+  background-color: transparent;
+}
+
+.toggleMenu.active .icon-bar:nth-of-type(3) {
+  top: -6px;
+  transform: rotate(-45deg);
+}
+
+.back-btn {
+  color: whitesmoke;
+  float: right;
+  position: fixed;
+  right: 5px;
+  top: 10px;
+  z-index: 1000;
+  padding: 7px 13px;
+  margin-left: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  border-color: @color-background-menu-button;
+
+  &:hover {
+    background-color: @color-background-menu-button;
+  }
+
+  &:focus {
+    outline: 0px;
+  }
+}
+
+.scrollup-btn {
+  display: none;
+  float: right;
+  position: fixed;
+  right: 5px;
+  bottom: 25px;
+  z-index: 1000;
+  padding: 7px 13px;
+  margin-left: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  border-color: @color-background-menu-button;
+  font-size: 1.3em;
+  opacity: 0.5;
+
+  &:focus {
+    outline: 0px;
+  }
+
+  .icon-bar {
+    display: block;
+    width: 20px;
+    height: 3px;
+    border-radius: 1px;
+    position: relative;
+    background-color: #555555;
+  }
+}
+
+span.user-role {
+  font-size: 0.9em;
+  text-transform: capitalize;
+  span.splitter {
+    padding-left: 1px;
+    background-color: #ddd;
+    margin: 0px 4px;
+    height: 100%;
+  };
+  span.adjusted {
+    top: 2px;
+    cursor: pointer;
+  };
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+#table-users tr {
+  cursor: pointer;
+}
+
+div.panel.collapsible {
+  div.panel-heading {
+    cursor: pointer;
+    background-color: #C7692D;
+  }
+}
+
+.market-item {
+  .panel-heading {
+    background-color: inherit;
+    border-bottom: inherit;
+    padding-bottom: 0px;
+  }
+}
+span.market-remove {
+  float: right;
+  cursor: pointer;
+}
+
+div.js-odd {
+  cursor: pointer;
+  width: 100%;
+  padding: 2px 5px;
+//   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+//   -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  background-color: @color-odd-bg;
+  border: 1px solid darken(@color-odd-bg, 10%);
+  background-image: -webkit-linear-gradient(@color-odd-bg, darken(@color-odd-bg, 10%) @color-odd-bg-gradient-middle-pc, darken(@color-odd-bg, 10%));
+  background-image: -o-linear-gradient(@color-odd-bg, darken(@color-odd-bg, 10%) @color-odd-bg-gradient-middle-pc, darken(@color-odd-bg, 10%));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(@color-odd-bg), color-stop(@color-odd-bg-gradient-middle-pc, darken(@color-odd-bg, 10%)), to(darken(@color-odd-bg, 10%)));
+  background-image: linear-gradient(@color-odd-bg, darken(@color-odd-bg, 10%) @color-odd-bg-gradient-middle-pc, darken(@color-odd-bg, 10%));
+
+  &:not(:first-child) {
+    margin-top: 5px;
+  }
+
+  &.mark {
+    background-color: @color-odd-mark-bg;
+    color: @color-odd-mark-color;
+    border: 1px solid darken(@color-odd-mark-bg, 10%);
+    background-image: -webkit-linear-gradient(@color-odd-mark-bg, darken(@color-odd-mark-bg, 10%) @color-odd-bg-gradient-middle-pc, darken(@color-odd-mark-bg, 10%));
+    background-image: -o-linear-gradient(@color-odd-mark-bg, darken(@color-odd-mark-bg, 10%) @color-odd-bg-gradient-middle-pc, darken(@color-odd-mark-bg, 10%));
+    background-image: -webkit-gradient(linear, left top, left bottom, from(@color-odd-mark-bg), color-stop(@color-odd-bg-gradient-middle-pc, darken(@color-odd-mark-bg, 10%)), to(darken(@color-odd-mark-bg, 10%)));
+    background-image: linear-gradient(@color-odd-mark-bg, darken(@color-odd-mark-bg, 10%) @color-odd-bg-gradient-middle-pc, darken(@color-odd-mark-bg, 10%));
+  }
+  &.wait {
+    background-color: @color-odd-wait-bg;
+    color: @color-odd-wait-color;
+    border: 1px solid darken(@color-odd-wait-bg, 10%);
+    background-image: -webkit-linear-gradient(@color-odd-wait-bg, darken(@color-odd-wait-bg, 10%) @color-odd-bg-gradient-middle-pc, darken(@color-odd-wait-bg, 10%));
+    background-image: -o-linear-gradient(@color-odd-wait-bg, darken(@color-odd-wait-bg, 10%) @color-odd-bg-gradient-middle-pc, darken(@color-odd-wait-bg, 10%));
+    background-image: -webkit-gradient(linear, left top, left bottom, from(@color-odd-wait-bg), color-stop(@color-odd-bg-gradient-middle-pc, darken(@color-odd-wait-bg, 10%)), to(darken(@color-odd-wait-bg, 10%)));
+    background-image: linear-gradient(@color-odd-wait-bg, darken(@color-odd-wait-bg, 10%) @color-odd-bg-gradient-middle-pc, darken(@color-odd-wait-bg, 10%));
+  }
+  &.win {
+    background-color: @color-odd-win-bg;
+    color: @color-odd-win-color;
+    border: 1px solid darken(@color-odd-win-bg, 10%);
+    background-image: -webkit-linear-gradient(@color-odd-win-bg, darken(@color-odd-win-bg, 10%) @color-odd-bg-gradient-middle-pc, darken(@color-odd-win-bg, 10%));
+    background-image: -o-linear-gradient(@color-odd-win-bg, darken(@color-odd-win-bg, 10%) @color-odd-bg-gradient-middle-pc, darken(@color-odd-win-bg, 10%));
+    background-image: -webkit-gradient(linear, left top, left bottom, from(@color-odd-win-bg), color-stop(@color-odd-bg-gradient-middle-pc, darken(@color-odd-win-bg, 10%)), to(darken(@color-odd-win-bg, 10%)));
+    background-image: linear-gradient(@color-odd-win-bg, darken(@color-odd-win-bg, 10%) @color-odd-bg-gradient-middle-pc, darken(@color-odd-win-bg, 10%));
+  }
+  &.lost {
+    background-color: @color-odd-lost-bg;
+    color: @color-odd-lost-color;
+    border: 1px solid darken(@color-odd-lost-bg, 10%);
+    background-image: -webkit-linear-gradient(@color-odd-lost-bg, darken(@color-odd-lost-bg, 10%) @color-odd-bg-gradient-middle-pc, darken(@color-odd-lost-bg, 10%));
+    background-image: -o-linear-gradient(@color-odd-lost-bg, darken(@color-odd-lost-bg, 10%) @color-odd-bg-gradient-middle-pc, darken(@color-odd-lost-bg, 10%));
+    background-image: -webkit-gradient(linear, left top, left bottom, from(@color-odd-lost-bg), color-stop(@color-odd-bg-gradient-middle-pc, darken(@color-odd-lost-bg, 10%)), to(darken(@color-odd-lost-bg, 10%)));
+    background-image: linear-gradient(@color-odd-lost-bg, darken(@color-odd-lost-bg, 10%) @color-odd-bg-gradient-middle-pc, darken(@color-odd-lost-bg, 10%));
+
+    span.bet-amount {
+      color: #C7C315;
+    }
+  }
+
+  span.bet-amount {
+    float: right;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #C71585;
+    margin-top: -3px;
+    margin-right: 5px;
+  }
+}
+
+div.result-container {
+  width: 100%;
+  height: 100%;
+}
+
+input.result-box {
+  width: 100% !important;
+}
+
+span.js-result-text {
+  padding: 9px 13px;
+  display: inline-block;
+  font-size: 14px;
+}
+
+div.js-match {
+  // background-color: @panel-bg;
+  cursor: pointer;
+  text-align: center;
+
+  label {
+    width: 100%;
+  }
+}
+
+span.badge {
+  float: right;
+  margin-left: 2px;
+  &.js-sum-wait {
+    background-color: @color-odd-wait-bg;
+  }
+  &.js-sum-bet {
+    background-color: @color-odd-mark-bg;
+  }
+  &.js-sum-bet-past {
+    background-color: @color-odd-lost-bg;
+  }
+  &.js-games-wait {
+    background-color: @color-odd-wait-bg;
+  }
+}
+
+span.etw {
+  font-size: 1em;
+}
+
+span.js-remove-slip {
+  float: right;
+  position: static;
+  .transition-menu-button;
+}
+
+.dashboard-panel {
+  background-color: transparent;
+  border-radius: 15px;
+  border: 1px solid rgba(160,160,160,0.3);
+}
+
+.dashboard-panel:hover {
+  background-color: rgba(255,255,255,0.4);
+}
+
+.dashboard-body {
+  background-color: transparent;
+  border-radius: 15px;
+}
+
+.dashboard-img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.dashboard-text {
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.rank-item-wrapper {
+  padding: 0px 5px;
+  &:nth-of-type(2n+1) {
+    padding-left: 0px;
+  }
+  &:nth-of-type(2n+2) {
+    padding-right: 0px;
+  }
+  @media(max-width: 1199px) {
+    &:nth-of-type(1n+0) {
+      padding: 0px 15px;
+    }
+  }
+}
+
+.rank-item {
+  &:before, &:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+  background-color: white;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+  line-height: 1.3;
+  padding: 5px 0px;
+  &:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+  }
+  span.label {
+    width: 100%;
+    display: inline-flex;
+  }
+  & > div.col-flex {
+    padding: 0px;
+    .col-xs-11;
+    border-left: 2px solid @color-background;
+    @media(max-width: @screen-xs-max) {
+      width: 88%;
+    }
+  }
+}
+
+.vertical-middle-padded {
+  &:after {
+    display: inline-table;
+    content: " ";
+  }
+  &:before {
+    display: inline-table;
+    content: " ";
+  }
+}
+
+div.vertical-middle {
+  // vertical align spans to middle for >=768px screens
+  @media(min-width: @screen-sm-min) {
+    .vertical-middle-padded;
+  }
+  & > span {
+    display: inherit;
+  }
+}
+
+.rank-user-info {
+  // @media(min-width: @screen-sm-min) {
+  //   border-right: 2px solid @color-background;
+  //   border-bottom: 0px;
+  // }
+  border-bottom: 0px;
+  font-weight: bold;
+  padding-left: initial;
+}
+
+.rank-player-info {
+  @media(min-width: @screen-sm-min) {
+    .rank-player-info-item {
+      margin-top: 5px;
+    }
+    .col-xs-6 {
+      margin-bottom: 2px;
+    }
+  }
+  padding: 0px;
+}
+
+.rank-position {
+  .sponsor-position;
+  @media(max-width: @screen-xs-max) {
+    padding-top: 11px;
+    // padding-top: 20px;
+    // padding-bottom: 24px;
+  }
+}
+
+.sponsor-amount {
+  font-weight: 700;
+  text-align: center;
+}
+
+.sponsor-position {
+  .sponsor-amount;
+  color: #6495ed;
+  //border-right: 2px solid @color-background;
+}
+
+.sponsor-name {
+  border-left: 2px solid #ddd;
+  border-right: 2px solid #ddd;
+}
+
+.transfer-item {
+  .transfer-person, .transfer-amount {
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+  .transfer-amount {
+    color: #6495ed;
+  }
+}
+
+@border-player-names: 1px solid #dddddd;
+
+div.player-names {
+  border-left: @border-player-names;
+  border-right: @border-player-names;
+  border-bottom: @border-player-names;
+  padding: 5px 5px;
+}
+
+span.player-name {
+  white-space: nowrap;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+@color-match-row: #fff;
+
+#modalMenu {
+  .list-group {
+    margin-bottom: 0px;
+    font-weight: bold;
+  }
+  .modal-dialog {
+    max-width: 320px;
+    width: 80%;
+  }
+}
+
+.row-filter {
+  padding-bottom: 5px;
+  text-align: right;
+}
+
+.row-teams {
+  background-color: @color-match-row;
+  padding-top: 15px;
+}
+
+.js-clear-filter {
+  margin: 0px auto 15px;
+  display: block;
+}
+
+.js-clear-time {
+  margin: -15px auto 0px;
+  display: block;
+}
+
+.js-more-matches-past {
+  margin: 10px auto 0px;
+  display: block;
+  float: left;
+}
+
+.js-more-matches {
+  margin: 10px auto 0px;
+  display: block;
+  float: right;
+}
+
+.match-list-period {
+  color: #2fa4e7;
+  margin-top: 21px;
+
+  & > span {
+    cursor: pointer;
+  }
+}
+
+.time-control {
+  min-width: 320px;
+  padding: 0px;
+  text-align: center;
+}
+
+.team-list {
+  padding: 0px;
+  .team-name {
+    font-size: 1em;
+    font-weight: bold;
+  }
+}
+
+.team-item {
+  display: inline-block;
+  width: 24%;
+  min-height: 65px;
+  margin-bottom: 10px;
+  vertical-align: top;
+  position: relative;
+}
+
+@media (min-width: 520px) {
+  .team-item {
+    width: 16%;
+  }
+}
+@media (min-width: 720px) {
+  .team-item {
+    width: 12%;
+  }
+}
+@media (min-width: 960px) {
+  .team-item {
+    width: 12%;
+    min-height: 90px;
+  }
+}
+@media (min-width: 1440px) {
+  .team-item {
+    width: 8%;
+  }
+}
+
+.match-row_match {
+  height: 100px;
+  line-height: 47px;
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+  background-color: @color-match-row;
+	margin-bottom: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken(@color-match-row, 3%);
+  }
+
+	// flag and text are in one line
+	.team-home {
+	  text-align: right;
+	  padding: 0px;
+		span.team-flag {
+			float: right;
+			right: 0;
+		}
+		.team-name {
+			float: right;
+		}
+	}
+	.team-away {
+	  text-align: left;
+	  padding: 0px;
+		span.team-flag {
+			left: 0;
+			float: left;
+		}
+		.team-name {
+			float: left;
+		}
+	}
+
+	.match-score {
+	  font-size: 2em;
+	  font-weight: bold;
+	  padding: 0px;
+	}
+}
+
+.match-info {
+  line-height: 2em;
+  font-size: 1.2em;
+}
+
+.team-name {
+  position: relative;
+  text-transform: uppercase;
+  padding: 0px 10px;
+  font-size: 1.45em;
+}
+
+.team-flag {
+	background-size: 59px 40px;
+	width: 59px;
+	height: 40px;
+	box-shadow: 0px 0px 3px #555 inset
+}
+
+// for screen widths up to 768px
+@media(max-width: 768px) {
+  .match-row_match {
+    height: 134px;
+    line-height: 26px;
+
+		// flag and text are centered in 2 lines
+		.team-home, .team-away {
+		  text-align: center;
+			span.team-flag {
+				float: none;
+			}
+			.team-name {
+				float: none;
+			}
+		}
+
+    // since the row is taller, add some paddings
+		.match-score {
+			padding-top: 22px;
+		}
+	}
+}
+// for screen widths up to 480px
+@media(max-width: 480px) {
+  // reduce font size
+	.match-row_match {
+		.match-score {
+			font-size: 1.5em;
+		}
+	}
+  .team-name {
+    font-size: 1em;
+    font-weight: bold;
+  }
+}
+
+div.quick-info {
+  font-size: 1.4em;
+  .row > div {
+    padding-top: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+    &:nth-of-type(2n + 1) {
+      background-color: #f8f8f8;
+    }
+  }
+  div.panel.panel-default {
+    min-height: 192px;
+  }
+}
+
+div.player-of-match, div.player-of-day {
+  div.panel.panel-default {
+    min-height: 192px;
+  }
+  .match-row_match {
+    border-bottom: 1px solid #ddd;
+  }
+  .home-player-item {
+    font-size: 1.3em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+    &:last-of-type {
+      border-bottom: 0px;
+    }
+    span.label {
+      width: 100%;
+      display: inline-flex;
+    }
+    span.home-player-item-name {
+      font-weight: 700;
+    }
+  }
+}
+
+div.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  margin-top: -53px;
+  margin-left: -53px;
+}

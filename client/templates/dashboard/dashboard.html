@@ -1,0 +1,25 @@
+<template name="main">
+  {{#if Template.subscriptionsReady}}
+  {{#staggering}}
+  <div class="content">
+    {{#if isOp}}
+      <div class="row">
+        {{> users_no_player}}
+        {{> matches_need_update}}
+      </div>
+    {{else}}
+    {{/if}}
+    {{#if isPlayer}}
+      <div class="row">
+        {{> quick_info}}
+        {{> player_of_day}}
+        {{> player_of_match}}
+      </div>
+    {{else}}
+      <h3 class="text-center">Thank you for registering. You are just one more
+        step away. Please contact an admin to verify your account.</h3>
+    {{/if}}
+  </div>
+  {{/staggering}}
+  {{/if}}
+</template>

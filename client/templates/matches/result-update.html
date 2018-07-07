@@ -1,0 +1,14 @@
+<template name="result_update">
+  {{> breadcrumb}}
+  {{#if Template.subscriptionsReady}}
+  {{#staggering}}
+  <div class="content">
+    <div class="row">
+      <div>
+        {{> match_list init=initFilter noFuture=true}}
+      </div>
+    </div>
+  </div>
+  {{/staggering}}
+  {{/if}}
+</template>

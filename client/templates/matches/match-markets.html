@@ -1,0 +1,74 @@
+<template name="import_markets">
+  {{> breadcrumb}}
+  {{#if Template.subscriptionsReady}}
+  {{#staggering}}
+  <div class="content">
+    {{#with match}}
+      <h3>{{matchDate}}</h3>
+      {{> match_item}}
+      <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            {{#autoForm id="formMarkets" schema=schema}}
+            <div class="col-md-6 col-xs-12">
+              {{> afQuickField name="parser" id="parser" rows=10 value=loadParser}}
+              <div class="col-md-offset-2 col-md-4 col-xs-offset-4 col-xs-4">
+                <button type="button" class="btn btn-primary form-control js-save-parser" title="Save parser">Save</button>
+              </div>
+              <div class="col-md-4 col-xs-4">
+                <button type="button" class="btn btn-default form-control js-load-parser" title="Reload parser">Reload</button>
+              </div>
+            </div>
+              <div class="col-md-6 col-xs-12">
+                {{> afQuickField name="html" id="html" rows=10}}
+                <div class="col-md-4 col-xs-4">
+                  <button type="button" class="btn btn-primary form-control js-parse" title="Parse HTML code to markets">Parse</button>
+                </div>
+                <div class="col-md-4 col-xs-4">
+                  <button type="button" class="btn btn-default form-control js-clear" title="Clear generated markets">Clear</button>
+                </div>
+                <div class="col-md-4 col-xs-4">
+                  <button type="button" class="btn btn-info form-control js-save-markets" title="Save generated markets">Save</button>
+                </div>
+              </div>
+            {{/autoForm}}
+          </div>
+        </div>
+      </div>
+      <div class="row markets-preview">
+        <h3>Generated markets</h3>
+        {{#each markets}}
+          <div class="col-lg-3 col-md-4 col-xs-12 market-item">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <label>{{name}}</label>
+                <span class="glyphicon glyphicon-remove market-remove"></span>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    {{#each odds}}
+                      <span>{{name}}</span>
+                      <span class="pull-right">{{value}}</span><br>
+                    {{/each}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+      {{#if hasMarkets}}
+        <div class="row">
+          <div class="col-md-offset-4 col-md-4 col-xs-offset-4 col-xs-4">
+            <button class="btn btn-info form-control js-save-markets">Save</button>
+          </div>
+        </div>
+      {{/if}}
+    {{else}}
+      The match is not accessible at the moment.
+    {{/with}}
+  </div>
+  {{/staggering}}
+  {{/if}}
+</template>

@@ -1,0 +1,51 @@
+<template name="player_match">
+	{{> breadcrumb}}
+	{{#if Template.subscriptionsReady}}
+	{{#staggering}}
+	<div class="content">
+		{{#with match}}
+			<div class="row">
+				<h3>{{matchDate}}</h3>
+			</div>
+		{{> match_item}}
+		{{/with}}
+		<div class="row">
+		<h3>Balance: {{formatFloat balance}}</h3>
+		{{#each markets}}
+			<div class="col-lg-3 col-md-4 col-xs-12 market-item">
+			<div class="panel panel-default">
+				<div class="panel-heading" data-index={{@index}}>
+				<label>{{name}}</label>
+				</div>
+				<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+					{{#each modOdds @index}}
+						{{#with slip marketIndex @index}}
+							<div class="js-odd {{slipState}}" data-index={{@index}} data-slip={{_id}}>
+								<span>{{name}}</span>
+								<span class="pull-right">{{value}}</span>
+								<span class="bet-amount">{{betAmount}}</span>
+							</div>
+							{{> odd_players players=players history=false}}
+							{{#if showBetForm}}
+								<div class="player-names">
+								{{> bet_form}}
+								</div>
+							{{/if}}
+						{{/with}}
+					{{/each}}
+					</div>
+				</div>
+				</div>
+			</div>
+			</div>
+		{{/each}}
+		</div>
+		<div class="row text-center">
+		<a href="{{pathFor route='player.slips'}}" class="btn btn-link">Go to Slips</a>
+		</div>
+	</div>
+	{{/staggering}}
+	{{/if}}
+</template>
